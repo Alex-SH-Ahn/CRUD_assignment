@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>모든 게시물 보기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(128, 128, 128, 0.199);
+            font-family: "Single Day", cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        a { text-decoration: none; }
+
+        a h2, a p {
+            background-color: white;
+            margin: 0;
+            padding: 10px;
+        }
+        a:visited {
+            color: grey;
+        }
+        .newPost {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        a .lastLine {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>~~ 블로그 게시물 보기 ~~</h1>
+        <div class="posts">
+            {% for blog in blogs %}
+            <a href="{% url 'detail' blog.id %}" class="post">
+                <h2>{{blog.title}}</h2>
+                <p>{{blog.created_at}}</p>
+                <p>{{blog.contents}}</p>
+                <hr class="lastLine">
+            </a>
+            {% endfor %}
+        </div>
+        <a href="{% url 'create' %}" class="newPost">새 게시글 작성하기</a>
+    </div>
+</body>
+</html>

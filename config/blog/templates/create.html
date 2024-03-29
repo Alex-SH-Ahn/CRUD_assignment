@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성하기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(128, 128, 128, 0.199);
+            font-family: "Single Day", cursive;
+            position: relative;
+            height: 100vh;
+            text-align: center;
+        }
+        form {
+            border: 1px solid black;
+            width: 250px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: left;
+        }
+        .line {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>새 글 작성하기</h1>
+    <hr class="line">
+    <form action="{% url 'create'%}" method="POST">
+    <!-- url의 포스트 메소드를 사용하여 form태그를 작성 -->
+        {% csrf_token %}
+        제목 : <input type="text" name="title"><br>
+        본문 : <textarea name="content" id="" cols="30" rows="10"></textarea><br>
+        생성일자 : <input type="datetime-local" name="created_at"><br>
+        <input type="submit" value="작성하기">
+    </form>
+</body>
+</html>

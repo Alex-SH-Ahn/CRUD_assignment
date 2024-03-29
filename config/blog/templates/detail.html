@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 상세 페이지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Single+Day&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(128, 128, 128, 0.199);
+            font-family: "Single Day", cursive;
+            position: relative;
+            height: 100vh;
+            text-align: center;
+        }
+        .post-detail {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+        }
+        .real-detail {
+            text-align: left;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 40px;
+            box-sizing: border-box;
+        }
+        a { text-decoration: none; }
+        a:visited { color: grey; }
+    </style>
+</head>
+<body>
+    <h1>블로그 게시물</h1>
+    <br>
+    <hr>
+    <div class="post-detail">
+        <div class="real-detail">
+            <h2>Title: {{blog.title}}</h2>
+            <p><b>Created At:</b> {{blog.created_at}}</p>
+            <p><b>Content:</b> {{blog.content}}</p>
+        </div>
+        <a href="{% url 'home' %}">홈으로 가기</a>
+    </div>
+    <!-- 템플릿 변수로 사용됨 -->
+</body>
+</html>
